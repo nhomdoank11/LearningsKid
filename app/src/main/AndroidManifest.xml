@@ -19,7 +19,9 @@
         <activity android:name=".UserHomeContent" />
         <activity android:name=".AdminHomeContent" />
         <activity android:name=".UserEnglishContent" />
-        <activity android:name=".UserEnglishContentGrammar"></activity>
+        <activity android:name=".UserEnglishContentGrammar" />
+        <activity android:name=".UserEnglishContentGrammarQuiz" />
+        <activity android:name=".UserEnglishContentGrammarQuizTest"></activity>
     </application>
 
 </manifest>
