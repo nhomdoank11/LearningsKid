@@ -100,7 +100,7 @@ public class UserEnglishContentGrammarQuizTest extends AppCompatActivity {
         double check = point/title.length*100;
         check = Math.round(check);
         Toast.makeText(this, String.valueOf(check)+"%", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,UserEnglishGrammarQuizResult.class);
+        Intent intent = new Intent(this,UserEnglishContentGrammarQuizResult.class);
 //        intent.putExtra("gramResult",String.valueOf(check));
         intent.putExtra("gramResult",check);
         startActivity(intent);
