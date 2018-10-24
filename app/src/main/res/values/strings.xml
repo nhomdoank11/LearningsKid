@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">LearningsKid</string>
     <string name="logout">Logout</string>
+    <string name="previous">previous</string>
+    <string name="next">next</string>
+    <string name="submit">submit</string>
 </resources>

@@ -6,4 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".UserEnglishContentGrammarQuizTest">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="back"
+        android:text="back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewEngGramTest"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioQuizEnglishgrammarA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/radioQuizEnglishgrammarB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/radioQuizEnglishgrammarC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/radioQuizEnglishgrammarD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnEngGrPre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:text="@string/previous"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnEngGramSubmit"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEngGramSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="53dp"
+        android:text="@string/submit"
+        app:layout_constraintStart_toEndOf="@+id/btnEngGrPre"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
+        android:id="@+id/BtnEngGramNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:text="@string/next"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnEngGramSubmit"
+        app:layout_constraintStart_toEndOf="@+id/btnEngGramSubmit" />
+
+    <TextView
+        android:id="@+id/textViewEngGramTest"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="31dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </android.support.constraint.ConstraintLayout>
