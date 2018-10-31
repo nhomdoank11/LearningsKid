@@ -1,9 +1,12 @@
 package com.example.jcj.learningskid;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class AdapterUser_english_content extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         MyHolder myHolder = null;
         if(convertView == null){
             convertView = activity.getLayoutInflater().inflate(R.layout.layout_english_grammar,null);
@@ -43,9 +46,22 @@ public class AdapterUser_english_content extends BaseAdapter {
         }
 
         myHolder.textViewName.setText(listProduct.get(position).getName());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EnglishGrammar exam = (EnglishGrammar) getItem(position);
+                Intent intent1 = new Intent(activity.getApplicationContext(), UserEnglishContentGrammarItemDescription.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("exam", exam);
+                intent1.putExtra("bundle", bundle);
+                activity.startActivity(intent1);
+                activity.finish();
+            }
+        });
 
         return convertView;
     }
+
 
     class MyHolder{
         public TextView textViewName;

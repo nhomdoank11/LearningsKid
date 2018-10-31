@@ -1,7 +1,12 @@
 package com.example.jcj.learningskid;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -9,28 +14,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserEnglishContentGrammar extends AppCompatActivity {
-    private ListView listView;
+    private UserEnglishContentGrammarHelper myHelper = null;
+    private ListView listviewUserEnglishGrammar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_english_content_grammar);
-        listView = findViewById(R.id.listviewUserEnglishGrammar);
+        listviewUserEnglishGrammar = findViewById(R.id.listviewUserEnglishGrammar);
+        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(),"exam",1);
+        myHelper.getReadableDatabase();
 
-//        String[] productList = {"mouse","keyboard","monitor","cat","hehe"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,productList);
-//        listView.setAdapter(adapter);
-        List<EnglishGrammar> list =  new ArrayList<>();
-        list.add(new EnglishGrammar("p1","100"));
-        list.add(new EnglishGrammar("p2","200"));
-        list.add(new EnglishGrammar("p3","300"));
-        list.add(new EnglishGrammar("p4","hehe"));
-        AdapterUser_english_content myAdapter = new AdapterUser_english_content(this,list);
-        listView.setAdapter(myAdapter);
+
+        AdapterUser_english_content myAdapter = new AdapterUser_english_content(this, select());
+        listviewUserEnglishGrammar.setAdapter(myAdapter);
+//        registerForContextMenu(listviewUserEnglishGrammar);
+
+    }
+    public List<EnglishGrammar> select() {
+        List<EnglishGrammar> list = new ArrayList<>();
+        if (myHelper == null) {
+            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "exam", 1);
+        }
+        SQLiteDatabase db = myHelper.getReadableDatabase();
+        Cursor cursor = db.query("UserEnglishContentGrammar", new String[]{"id", "name", "content"},
+                null, null
+                , null, null, null);
+        while (cursor.moveToNext()) {
+            EnglishGrammar student = new EnglishGrammar(cursor.getInt(cursor.getColumnIndex("id")),
+                    cursor.getString(cursor.getColumnIndex("name")),
+                    cursor.getString(cursor.getColumnIndex("content")));
+            list.add(student);
+        }
+        return list;
     }
     public void logout(View v){
 
     }
+    public void quiz(View view){
+        Intent intent = new Intent(getApplicationContext(), UserEnglishContentGrammarQuiz.class);
 
+        startActivity(intent);
+        finish();
+    }
+    //test add phan admin
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Add");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String title = String.valueOf(item.getTitle());
+        switch (title) {
+            case "Add":
+                Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarAdd.class);
+                finish();
+                startActivity(intent);
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

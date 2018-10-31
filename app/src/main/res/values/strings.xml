@@ -4,4 +4,6 @@
     <string name="previous">previous</string>
     <string name="next">next</string>
     <string name="submit">submit</string>
+    <string name="Add">Add</string>
+    <string name="Back">Back</string>
 </resources>
