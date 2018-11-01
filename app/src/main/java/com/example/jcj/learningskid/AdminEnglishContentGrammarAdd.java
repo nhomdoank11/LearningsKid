@@ -19,13 +19,13 @@ public class AdminEnglishContentGrammarAdd extends AppCompatActivity {
         setContentView(R.layout.activity_admin_english_content_grammar_add);
         etName = findViewById(R.id.editGrammarName);
         etContent = findViewById(R.id.editGrammarContent);
-        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "exam", 1);
+        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         myHelper.getReadableDatabase();
     }
 
     public void add(View view) {
         if (myHelper == null) {
-            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "exam", 1);
+            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         }
         if(etName.getText().toString().equals("")||etContent.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(), "Can't be blank", Toast.LENGTH_SHORT).show();

@@ -22,7 +22,7 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_english_content_grammar);
         listviewUserEnglishGrammar = findViewById(R.id.listviewUserEnglishGrammar);
-        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(),"exam",1);
+        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(),"LearningKid",1);
         myHelper.getReadableDatabase();
 
 
@@ -34,7 +34,7 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
     public List<EnglishGrammar> select() {
         List<EnglishGrammar> list = new ArrayList<>();
         if (myHelper == null) {
-            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "exam", 1);
+            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         }
         SQLiteDatabase db = myHelper.getReadableDatabase();
         Cursor cursor = db.query("UserEnglishContentGrammar", new String[]{"id", "name", "content"},

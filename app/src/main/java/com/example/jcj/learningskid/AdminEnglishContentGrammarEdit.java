@@ -31,7 +31,7 @@ public class AdminEnglishContentGrammarEdit extends AppCompatActivity {
 
     public void update(View view) {
         if(myHelper == null){
-            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "exam", 1);
+            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         }
         if(etName.getText().toString().equals("")||etDescription.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(), "Can't be blank", Toast.LENGTH_SHORT).show();
