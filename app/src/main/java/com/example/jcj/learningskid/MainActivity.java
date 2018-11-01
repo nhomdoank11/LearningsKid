@@ -103,21 +103,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CheckFinalResult() {
+        if(NameHolder.equals("admin") && PasswordHolder.equals("admin") ) {
+            Intent intent = new Intent(MainActivity.this, AdminHomeContent.class);
+            intent.putExtra(UserName, NameHolder);
+            startActivity(intent);
 
+        }
         if (TempPassword.equalsIgnoreCase(PasswordHolder)) {
 
             Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, UserHomeContent.class);
+            intent.putExtra(UserName, NameHolder);
+            startActivity(intent);
 
-            if(NameHolder.equals("admin") && PasswordHolder.equals("admin") ) {
-                Intent intent = new Intent(MainActivity.this, AdminHomeContent.class);
-                intent.putExtra(UserName, NameHolder);
-                startActivity(intent);
-
-            } else {
-                Intent intent = new Intent(MainActivity.this, UserHomeContent.class);
-                intent.putExtra(UserName, NameHolder);
-                startActivity(intent);
-            }
 
         } else {
             Toast.makeText(MainActivity.this, "UserName or Password is Wrong, Please Try Again.", Toast.LENGTH_LONG).show();
