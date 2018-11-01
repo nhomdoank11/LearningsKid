@@ -24,7 +24,9 @@
         <activity android:name=".UserEnglishContentGrammarQuizTest" />
         <activity android:name=".UserEnglishContentGrammarQuizResult" />
         <activity android:name=".AdminEnglishContentGrammarAdd" />
-        <activity android:name=".UserEnglishContentGrammarItemDescription"></activity>
+        <activity android:name=".UserEnglishContentGrammarItemDescription" />
+        <activity android:name=".AdminEnglishContentGrammarList" />
+        <activity android:name=".AdminEnglishContentGrammarEdit"></activity>
     </application>
 
 </manifest>

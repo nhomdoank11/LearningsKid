@@ -19,4 +19,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void demoAdminGrammar(View v){
+        Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarList.class);
+
+        startActivity(intent);
+        finish();
+    }
 }
