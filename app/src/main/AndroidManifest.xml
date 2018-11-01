@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity android:name=".UserHomeContent" />
         <activity android:name=".AdminHomeContent" />
         <activity android:name=".UserEnglishContent" />
@@ -26,7 +27,8 @@
         <activity android:name=".AdminEnglishContentGrammarAdd" />
         <activity android:name=".UserEnglishContentGrammarItemDescription" />
         <activity android:name=".AdminEnglishContentGrammarList" />
-        <activity android:name=".AdminEnglishContentGrammarEdit"></activity>
+        <activity android:name=".AdminEnglishContentGrammarEdit" />
+        <activity android:name=".RegisterActivity" ></activity>
     </application>
 
 </manifest>
