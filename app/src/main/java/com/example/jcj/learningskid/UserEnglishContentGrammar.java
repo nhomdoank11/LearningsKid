@@ -57,23 +57,23 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    //test add phan admin
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add("Add");
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        String title = String.valueOf(item.getTitle());
-        switch (title) {
-            case "Add":
-                Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarAdd.class);
-                finish();
-                startActivity(intent);
-
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    //test add phan admin
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        menu.add("Add");
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        String title = String.valueOf(item.getTitle());
+//        switch (title) {
+//            case "Add":
+//                Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarAdd.class);
+//                finish();
+//                startActivity(intent);
+//
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
 }
