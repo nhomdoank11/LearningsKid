@@ -135,4 +135,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+//    public void moveToMyActivity (View v){
+//        Intent intent = new Intent(getApplicationContext(),UserSearchDictionary.class);
+//        intent.putExtra( "color",0);
+//        startActivity(intent);
+//    }
+//    public void moveToMyActivity2 (View v){
+//        Intent intent = new Intent(getApplicationContext(),UserDictionary.class);
+//        intent.putExtra( "color",0);
+//        startActivity(intent);
+//    }
 }
