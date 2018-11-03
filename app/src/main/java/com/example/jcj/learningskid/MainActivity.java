@@ -123,18 +123,18 @@ public class MainActivity extends AppCompatActivity {
         TempPassword = "NOT_FOUND";
     }
 
-    public void demoGrammar(View v){
-        Intent intent = new Intent(getApplicationContext(), UserEnglishContentGrammar.class);
-
-        startActivity(intent);
-        finish();
-    }
-    public void demoAdminGrammar(View v){
-        Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarList.class);
-
-        startActivity(intent);
-        finish();
-    }
+//    public void demoGrammar(View v){
+//        Intent intent = new Intent(getApplicationContext(), UserEnglishContentGrammar.class);
+//
+//        startActivity(intent);
+//        finish();
+//    }
+//    public void demoAdminGrammar(View v){
+//        Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarList.class);
+//
+//        startActivity(intent);
+//        finish();
+//    }
 //    public void moveToMyActivity (View v){
 //        Intent intent = new Intent(getApplicationContext(),UserSearchDictionary.class);
 //        intent.putExtra( "color",0);

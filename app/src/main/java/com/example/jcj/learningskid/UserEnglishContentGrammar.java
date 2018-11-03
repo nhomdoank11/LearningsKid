@@ -36,6 +36,7 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
         if (myHelper == null) {
             myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         }
+//        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         SQLiteDatabase db = myHelper.getReadableDatabase();
         Cursor cursor = db.query("UserEnglishContentGrammar", new String[]{"id", "name", "content"},
                 null, null
