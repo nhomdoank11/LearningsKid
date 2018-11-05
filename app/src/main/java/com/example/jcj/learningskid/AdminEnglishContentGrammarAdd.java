@@ -37,7 +37,7 @@ public class AdminEnglishContentGrammarAdd extends AppCompatActivity {
             db.insert("UserEnglishContentGrammar", null, values);
             db.close();
             Toast.makeText(getApplicationContext(), "Add successfully", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), UserEnglishContentGrammar.class);
+            Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarList.class);
             finish();
             startActivity(intent);
         }

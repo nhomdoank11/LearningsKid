@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminEnglishContentGrammarList extends AppCompatActivity {
-    private UserEnglishContentGrammarHelper myHelper = null;
+    private SQLiteHelper myHelper = null;
     private ListView listviewUserEnglishGrammar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class AdminEnglishContentGrammarList extends AppCompatActivity {
         setContentView(R.layout.activity_admin_english_content_grammar_list);
 
         listviewUserEnglishGrammar = findViewById(R.id.listviewUserEnglishGrammar);
-        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(),"LearningKid",1);
+        myHelper = new SQLiteHelper(getApplicationContext(),"LearningKid",1);
         myHelper.getReadableDatabase();
 
 
@@ -41,7 +41,7 @@ public class AdminEnglishContentGrammarList extends AppCompatActivity {
     public List<EnglishGrammar> select() {
         List<EnglishGrammar> list = new ArrayList<>();
         if (myHelper == null) {
-            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
+            myHelper = new SQLiteHelper(getApplicationContext(), "LearningKid", 1);
         }
         SQLiteDatabase db = myHelper.getReadableDatabase();
         Cursor cursor = db.query("UserEnglishContentGrammar", new String[]{"id", "name", "content"},
@@ -121,7 +121,7 @@ public class AdminEnglishContentGrammarList extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         EnglishGrammar exam = (EnglishGrammar) listviewUserEnglishGrammar.getItemAtPosition(info.position);
                         if (myHelper == null) {
-                            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
+                            myHelper = new SQLiteHelper(getApplicationContext(), "LearningKid", 1);
                         }
                         SQLiteDatabase db = myHelper.getWritableDatabase();
                         db.delete("UserEnglishContentGrammar", "id=?", new String[]{String.valueOf(exam.getId())});

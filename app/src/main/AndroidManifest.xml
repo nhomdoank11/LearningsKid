@@ -29,7 +29,8 @@
         <activity android:name=".AdminEnglishContentGrammarEdit" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserSearchDictionary" />
-        <activity android:name=".UserDictionary"></activity>
+        <activity android:name=".UserDictionary" />
+        <activity android:name=".AdminEnglishContent"></activity>
     </application>
 
 </manifest>

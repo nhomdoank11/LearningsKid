@@ -36,4 +36,10 @@ public class UserHomeContent extends AppCompatActivity {
         });
 
     }
+    public void goUserEnglishContent(View v){
+        Intent intent = new Intent(getApplicationContext(), UserEnglishContent.class);
+
+        startActivity(intent);
+        finish();
+    }
 }

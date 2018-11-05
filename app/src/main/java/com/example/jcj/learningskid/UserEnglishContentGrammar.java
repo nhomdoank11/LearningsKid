@@ -9,12 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserEnglishContentGrammar extends AppCompatActivity {
-    private UserEnglishContentGrammarHelper myHelper = null;
+    private SQLiteHelper myHelper = null;
     private ListView listviewUserEnglishGrammar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_english_content_grammar);
         listviewUserEnglishGrammar = findViewById(R.id.listviewUserEnglishGrammar);
-        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(),"LearningKid",1);
+        myHelper = new SQLiteHelper(getApplicationContext(),"LearningKid",1);
         myHelper.getReadableDatabase();
 
 
@@ -34,19 +35,24 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
     public List<EnglishGrammar> select() {
         List<EnglishGrammar> list = new ArrayList<>();
         if (myHelper == null) {
-            myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
+            myHelper = new SQLiteHelper(getApplicationContext(), "LearningKid", 1);
         }
 //        myHelper = new UserEnglishContentGrammarHelper(getApplicationContext(), "LearningKid", 1);
         SQLiteDatabase db = myHelper.getReadableDatabase();
-        Cursor cursor = db.query("UserEnglishContentGrammar", new String[]{"id", "name", "content"},
-                null, null
-                , null, null, null);
-        while (cursor.moveToNext()) {
-            EnglishGrammar student = new EnglishGrammar(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("name")),
-                    cursor.getString(cursor.getColumnIndex("content")));
-            list.add(student);
+        try{
+            Cursor cursor = db.query("UserEnglishContentGrammar", new String[]{"id", "name", "content"},
+                    null, null
+                    , null, null, null);
+            while (cursor.moveToNext()) {
+                EnglishGrammar student = new EnglishGrammar(cursor.getInt(cursor.getColumnIndex("id")),
+                        cursor.getString(cursor.getColumnIndex("name")),
+                        cursor.getString(cursor.getColumnIndex("content")));
+                list.add(student);
+            }
+        }catch (Exception e){
+//            Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
         }
+
         return list;
     }
     public void logout(View v){

@@ -35,4 +35,11 @@ public class AdminHomeContent extends AppCompatActivity {
             }
         });
     }
+
+    public void goEnglish(View v){
+        Intent intent = new Intent(getApplicationContext(), AdminEnglishContent.class);
+
+        startActivity(intent);
+        finish();
+    }
 }

@@ -5,15 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class UserEnglishContent extends AppCompatActivity {
+public class AdminEnglishContent extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_english_content);
+        setContentView(R.layout.activity_admin_english_content);
     }
-    public void goUserEnglishContentGrammar(View v){
-        Intent intent = new Intent(getApplicationContext(), UserEnglishContentGrammar.class);
+    public void goEnglishGrammar(View v){
+        Intent intent = new Intent(getApplicationContext(), AdminEnglishContentGrammarList.class);
 
         startActivity(intent);
         finish();
