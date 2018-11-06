@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserEnglishContentGrammarQuizTest extends AppCompatActivity {
-
+    private EnglishGrammarQuiz exam = new EnglishGrammarQuiz();
     public int i;
     private RadioButton radioButton;
     private RadioButton radioButton2;
@@ -26,6 +26,10 @@ public class UserEnglishContentGrammarQuizTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_english_content_grammar_quiz_test);
+
+        exam = (EnglishGrammarQuiz) getIntent()
+                .getBundleExtra("bundle")
+                .getSerializable("exam");
 
         textViewEngGramTest = findViewById(R.id.textViewEngGramTest);
         radioButton = findViewById(R.id.radioQuizEnglishgrammarA);
@@ -103,6 +107,11 @@ public class UserEnglishContentGrammarQuizTest extends AppCompatActivity {
         Intent intent = new Intent(this,UserEnglishContentGrammarQuizResult.class);
 //        intent.putExtra("gramResult",String.valueOf(check));
         intent.putExtra("gramResult",check);
+        if(exam.getPassCondition()<=check){
+            intent.putExtra("gramResultPass","Pass");
+        }else {
+            intent.putExtra("gramResultPass","Fail");
+        }
         startActivity(intent);
         finish();
     }
