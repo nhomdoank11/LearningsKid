@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/goEnglish"
@@ -48,4 +48,22 @@
         android:text="English"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintStart_toStartOf="@+id/button1" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
+        android:text="GDGT"
+        app:layout_constraintBottom_toTopOf="@+id/goEnglish"
+        app:layout_constraintStart_toStartOf="@+id/goEnglish" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="LOGIC"
+        app:layout_constraintBottom_toTopOf="@+id/button9"
+        app:layout_constraintStart_toStartOf="@+id/button9" />
 </android.support.constraint.ConstraintLayout>

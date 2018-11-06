@@ -30,7 +30,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserSearchDictionary" />
         <activity android:name=".UserDictionary" />
-        <activity android:name=".AdminEnglishContent"></activity>
+        <activity android:name=".AdminEnglishContent" />
+        <activity android:name=".AdminEnglishContentGrammarQuizAdd"></activity>
     </application>
 
 </manifest>

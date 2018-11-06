@@ -12,4 +12,6 @@
     <string name="Add">Add</string>
     <string name="Back">Back</string>
     <string name="Grammar">Grammar</string>
+    <string name="Dictionary">Dictionary</string>
+    <string name="NewWord">New Word</string>
 </resources>

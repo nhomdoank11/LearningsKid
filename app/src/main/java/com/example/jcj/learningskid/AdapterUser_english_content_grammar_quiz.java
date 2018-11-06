@@ -6,14 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
-public class AdapterUser_english_content extends BaseAdapter {
-    private UserEnglishContentGrammar activity;
-    private List<EnglishGrammar> listProduct;
-    public AdapterUser_english_content(UserEnglishContentGrammar activity, List<EnglishGrammar> listProduct) {
+public class AdapterUser_english_content_grammar_quiz extends BaseAdapter {
+    private UserEnglishContentGrammarQuiz activity;
+    private List<EnglishGrammarQuiz> listProduct;
+    public AdapterUser_english_content_grammar_quiz(UserEnglishContentGrammarQuiz activity, List<EnglishGrammarQuiz> listProduct) {
         this.activity = activity;
         this.listProduct = listProduct;
     }
@@ -34,23 +33,24 @@ public class AdapterUser_english_content extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        MyHolder myHolder = null;
+        AdapterUser_english_content_grammar_quiz.MyHolder myHolder = null;
         if(convertView == null){
-            convertView = activity.getLayoutInflater().inflate(R.layout.layout_english_grammar,null);
-            myHolder =  new MyHolder();
-            myHolder.textViewName = convertView.findViewById(R.id.textViewEnglishGrammar);
-
+            convertView = activity.getLayoutInflater().inflate(R.layout.layout_english_grammar_quiz,null);
+            myHolder = new AdapterUser_english_content_grammar_quiz.MyHolder();
+            myHolder.textViewName = convertView.findViewById(R.id.grammarQuizName);
+            myHolder.textViewPass = convertView.findViewById(R.id.grammarQuizPass);
             convertView.setTag(myHolder);
         }else{
-            myHolder = (MyHolder) convertView.getTag();
+            myHolder = (AdapterUser_english_content_grammar_quiz.MyHolder) convertView.getTag();
         }
 
         myHolder.textViewName.setText(listProduct.get(position).getName());
+        myHolder.textViewPass.setText(String.valueOf(listProduct.get(position).getPassCondition())+"%" );
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EnglishGrammar exam = (EnglishGrammar) getItem(position);
-                Intent intent1 = new Intent(activity.getApplicationContext(), UserEnglishContentGrammarItemDescription.class);
+                EnglishGrammarQuiz exam = (EnglishGrammarQuiz) getItem(position);
+                Intent intent1 = new Intent(activity.getApplicationContext(), UserEnglishContentGrammarQuizTest.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("exam", exam);
                 intent1.putExtra("bundle", bundle);
@@ -63,9 +63,9 @@ public class AdapterUser_english_content extends BaseAdapter {
     }
 
 
-    static class MyHolder{
+    class MyHolder{
         public TextView textViewName;
-
+        public TextView textViewPass;
 
     }
 }
