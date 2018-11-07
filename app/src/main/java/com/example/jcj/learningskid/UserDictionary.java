@@ -4,10 +4,16 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 public class UserDictionary extends AppCompatActivity {
     private MyHelperDictionary myHelperDictionary = null;
@@ -43,6 +49,27 @@ public class UserDictionary extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addnew(View view){
+
+        Dictionary valuses = new Dictionary();
+        valuses.setVietNam(edtVietNam.getText().toString());
+        valuses.setEnglish(edtEnglish.getText().toString());
+        valuses.setExample(edtExample.getText().toString());
+        MainActivity.learningskid.collection("Dictionary").document().set(valuses)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(UserDictionary.this,"SUCCESSFULLY",Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UserDictionary.this,"ERROR!",Toast.LENGTH_LONG).show();
+                        Log.d(MainActivity.TAG,e.toString());
+                    }
+                });
+    }
 
 
 }

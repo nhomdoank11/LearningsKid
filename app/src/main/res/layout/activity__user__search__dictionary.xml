@@ -40,4 +40,17 @@
         android:onClick="select2"
         android:text="Search" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/listView"
+        android:layout_marginBottom="27dp"
+        android:onClick="moveToAddNewRord"
+        android:text="add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
 </RelativeLayout>

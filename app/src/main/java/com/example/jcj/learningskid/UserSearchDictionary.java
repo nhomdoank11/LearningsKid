@@ -27,7 +27,7 @@ public class UserSearchDictionary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__user__search__dictionary);
         Intent intent = getIntent();
-        int action = intent.getIntExtra(  "color", 0);
+        int action = intent.getIntExtra(  "searchDictionary", 0);
         listView   = findViewById(R.id.listView);
         autoCompleteTextView = findViewById(R.id.autoComplate);
         myHelperDictionary = new MyHelperDictionary(getApplicationContext(),"learningskid",2);
@@ -67,5 +67,10 @@ public class UserSearchDictionary extends AppCompatActivity {
         }
         DictionaryAdapter adapter = new DictionaryAdapter(this, dictionaryList);
         listView.setAdapter(adapter);
+    }
+    public void moveToAddNewRord (View v){
+        Intent intent = new Intent(getApplicationContext(),UserDictionary.class);
+        intent.putExtra( "addNewWord",0);
+        startActivity(intent);
     }
 }
