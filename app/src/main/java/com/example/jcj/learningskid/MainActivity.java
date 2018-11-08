@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
 public class MainActivity extends AppCompatActivity {
 // day la login page
     Button LogInButton, RegisterButton;
@@ -24,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
     Cursor cursor;
     String TempPassword = "NOT_FOUND";
     public static final String UserName = "";
-    public static  final FirebaseFirestore learningskid = FirebaseFirestore.getInstance();
-    public static final String TAG = "MainActivity";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
