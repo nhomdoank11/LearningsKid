@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/result_gr"
     tools:context=".UserEnglishContentGrammarQuizResult">
 
     <TextView
@@ -33,6 +34,7 @@
         android:layout_marginTop="48dp"
         android:onClick="backToGrammarQuiz"
         android:text="back to quiz"
+        android:background="@drawable/button_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtpassOrFail" />
