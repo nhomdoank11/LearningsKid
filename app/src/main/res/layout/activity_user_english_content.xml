@@ -15,7 +15,6 @@
         android:text="@string/Grammar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -32,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="53dp"
+        android:onClick="goToNewWord"
         android:text="@string/NewWord"
         app:layout_constraintBottom_toTopOf="@+id/goGrammar"
         app:layout_constraintStart_toStartOf="@+id/goGrammar" />
@@ -58,8 +58,8 @@
         android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="6dp"
         android:text="@string/logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

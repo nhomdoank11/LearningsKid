@@ -44,6 +44,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "content text)";
         database.execSQL(createUserEnglishContentGrammar);
 
+        String createUserEnglishNewwordLesson = "CREATE TABLE IF NOT EXISTS UserEnglishNewwordLesson(" +
+                "id integer primary key autoincrement," +
+                "name text not null)";
+        database.execSQL(createUserEnglishNewwordLesson);
+
+        String createUserEnglishNewwordContent = "CREATE TABLE UserEnglishNewwordContent(" +
+                "id integer primary key autoincrement," +
+                "lessonid integer,"+
+                "word text not null,"+
+                "detail text not null)";
+        database.execSQL(createUserEnglishNewwordContent);
 
     }
 
@@ -54,6 +65,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             String sql = "DROP TABLE IF EXISTS UserEnglishContentGrammar";
             db.execSQL(sql);
             sql = "DROP TABLE IF EXISTS UserEnglishContentGrammarQuiz";
+            db.execSQL(sql);
+            sql = "DROP TABLE IF EXISTS UserEnglishNewwordLesson";
+            db.execSQL(sql);
+            sql = "DROP TABLE IF EXISTS createUserEnglishNewwordContent";
             db.execSQL(sql);
             onCreate(db);
 

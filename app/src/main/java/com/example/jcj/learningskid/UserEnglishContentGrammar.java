@@ -64,6 +64,12 @@ public class UserEnglishContentGrammar extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void backToEnglish(View view){
+        Intent intent = new Intent(getApplicationContext(), UserEnglishContent.class);
+
+        startActivity(intent);
+        finish();
+    }
 //    //test add phan admin
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        menu.add("Add");

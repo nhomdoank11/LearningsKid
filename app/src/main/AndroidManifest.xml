@@ -32,6 +32,7 @@
         <activity android:name=".UserDictionary" />
         <activity android:name=".AdminEnglishContent" />
         <activity android:name=".AdminEnglishContentGrammarQuizAdd"></activity>
+        <activity android:name=".UserEnglishNewwordLesson"></activity>
     </application>
 
 </manifest>

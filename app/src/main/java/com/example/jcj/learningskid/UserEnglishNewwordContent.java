@@ -11,13 +11,13 @@ import java.util.List;
 
 public class UserEnglishNewwordContent extends AppCompatActivity {
     private ListView newwordList;
-    private UserEnglishNewwordContentHelper myHelper = null;
+    private SQLiteHelper myHelper = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_english_newword_content);
         newwordList = findViewById(R.id.listWord);
-        myHelper = new UserEnglishNewwordContentHelper(getApplicationContext(),"LearningKid", 1);
+        myHelper = new SQLiteHelper(getApplicationContext(),"LearningKid", 1);
         myHelper.getReadableDatabase();
         AdapterUser_englishNewword_Content adapter = new AdapterUser_englishNewword_Content(this, select());
         newwordList.setAdapter((AdapterUser_englishNewword_Content)adapter);
@@ -25,7 +25,7 @@ public class UserEnglishNewwordContent extends AppCompatActivity {
     public List<EnglishNewwordContent> select(){
         List<EnglishNewwordContent> list = new ArrayList<>();
         if(myHelper == null){
-            myHelper = new UserEnglishNewwordContentHelper(getApplicationContext(),"LearningKid", 1);
+            myHelper = new SQLiteHelper(getApplicationContext(),"LearningKid", 1);
         }
         SQLiteDatabase db = myHelper.getReadableDatabase();
         Cursor cursor = db.query("UserEnglishNewwordContent", new String[]{"id", "word","detail"},

@@ -45,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
+        android:onClick="backToEnglish"
         android:text="@string/Back"
         app:layout_constraintBottom_toTopOf="@+id/listviewUserEnglishGrammar"
         app:layout_constraintStart_toStartOf="parent" />
