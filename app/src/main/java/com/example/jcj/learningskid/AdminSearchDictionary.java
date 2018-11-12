@@ -21,12 +21,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserSearchDictionary extends AppCompatActivity {
-
-    private ListView listViewU;
-    TextView tvTransU, tvTrans2U;
-    AutoCompleteTextView autoCompleteTextViewU;
-    private List<Dictionary> dictionaryListU = new ArrayList<>();
+public class AdminSearchDictionary extends AppCompatActivity {
+    private ListView listView;
+    TextView tvTrans, tvTrans2;
+    String uName;
+    AutoCompleteTextView autoCompleteTextView;
+    private List<Dictionary> dictionaryList = new ArrayList<>();
     private static final String ID = "id";
     private static final String VIETNAM = "vietNam";
     private static final String ENGLISH = "english";
@@ -36,74 +36,78 @@ public class UserSearchDictionary extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_search_dictionary);
-        tvTransU = findViewById(R.id.tvUTrans);
-        tvTrans2U = findViewById(R.id.tvUTrans2);
-        autoCompleteTextViewU = findViewById(R.id.autoComplateU);
-        getAutoCompleteU();
+        setContentView(R.layout.activity__admin__search__dictionary);
+        tvTrans = findViewById(R.id.tvTrans);
+        tvTrans2 = findViewById(R.id.tvTrans2);
+        autoCompleteTextView = findViewById(R.id.autoComplate);
+        Intent intent = getIntent();
+        uName = intent.getStringExtra("uName");
+
+        getAutoComplete();
     }
 
-    public void getAutoCompleteU() {
-        MainActivity.learningskid.collection(FOLDER_TASK).get()
+    public void getAutoComplete() {
+        MainActivity.learningskid.collection("DicProduct").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot documentSnapshots) {
-                        final ArrayList<String> dictionaryEnglishListU = new ArrayList<>();
+                        final ArrayList<String> dictionaryEnglishList = new ArrayList<>();
                         for (DocumentSnapshot doc : documentSnapshots) {
-                            dictionaryEnglishListU.add((String) doc.get(ENGLISH));
+                            dictionaryEnglishList.add((String) doc.get(ENGLISH));
                         }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(UserSearchDictionary.this,
-                                R.layout.support_simple_spinner_dropdown_item,dictionaryEnglishListU);
-                        autoCompleteTextViewU.setAdapter(arrayAdapter);
-                        autoCompleteTextViewU.setThreshold(1);
-                        autoCompleteTextViewU.setDropDownHeight(400);
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(AdminSearchDictionary.this,
+                                R.layout.support_simple_spinner_dropdown_item,dictionaryEnglishList);
+                        autoCompleteTextView.setAdapter(arrayAdapter);
+                        autoCompleteTextView.setThreshold(1);
+                        autoCompleteTextView.setDropDownHeight(400);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.d("load e ", e.toString());
-                        Toast.makeText(UserSearchDictionary.this, "Failed Load!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminSearchDictionary.this, "Failed Load!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
     public void getDictionaryByEn(View view) {
-        tvTransU.setText("");
-        final String txtAutoCompleteU = autoCompleteTextViewU.getText().toString();
-        dictionaryListU = new ArrayList<>();
-        MainActivity.learningskid.collection(FOLDER_TASK).whereEqualTo(ENGLISH,txtAutoCompleteU).get()
+        final String txtAutoComplete = autoCompleteTextView.getText().toString();
+        tvTrans2.setText("");
+        dictionaryList = new ArrayList<>();
+        MainActivity.learningskid.collection(FOLDER_TASK).whereEqualTo(ENGLISH,txtAutoComplete).get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot documentSnapshots) {
                         for (DocumentSnapshot doc : documentSnapshots) {
                             Dictionary dictionary = new Dictionary(doc.getString(ID),doc.getString(VIETNAM), doc.getString(ENGLISH),
                                     doc.getString(EXAMPLE));
-                            dictionaryListU.add(dictionary);
-                            if(dictionaryListU.size() > 0){
-                                tvTrans2U.setText("Bản dịch của " + txtAutoCompleteU + ":" + "\n" + "\n" +
+                            dictionaryList.add(dictionary);
+                            if(dictionaryList.size() > 0){
+                                tvTrans2.setText("Bản dịch của " + txtAutoComplete + ":" + "\n" + "\n" +
                                         "Ngĩa: " + doc.getString(VIETNAM) + "\n" + "\n" + "Nghĩa khác: " + doc.getString(EXAMPLE));
                             } else {
-                                tvTrans2U.setText("Từ bạn tìm hiện chưa có");
+                                tvTrans2.setText("Từ bạn tìm hiện chưa có");
                             }
                         }
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.d("load e ", e.toString());
-                        Toast.makeText(UserSearchDictionary.this, "Failed Load!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminSearchDictionary.this, "Failed Load!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-    public void goAddNewWord (View v){
-        Intent intent = new Intent(getApplicationContext(),UserDictionary.class);
+    public void goAcceptDictionary (View v){
+        Intent intent = new Intent(getApplicationContext(),AdminAcceptDictionary.class);
         startActivity(intent);
-        finish();
     }
-    public void backUEContent(View view){
-        Intent intent = new Intent(getApplicationContext(),UserEnglishContent.class);
+    public void backAHContent(View view){
+
+        Intent intent = new Intent(getApplicationContext(),AdminHomeContent.class);
+        intent.putExtra("admin",uName);
         startActivity(intent);
-        finish();
     }
 }

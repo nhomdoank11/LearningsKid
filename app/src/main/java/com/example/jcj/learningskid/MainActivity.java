@@ -3,13 +3,25 @@ package com.example.jcj.learningskid;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 // day la login page
@@ -22,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     Cursor cursor;
     String TempPassword = "NOT_FOUND";
     public static final String UserName = "";
+    public static  final FirebaseFirestore learningskid = FirebaseFirestore.getInstance();
+    public static final String TAG = "MainActivity";
+    private List<User> usersListLogin = new ArrayList<>();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         
         LogInButton = findViewById(R.id.buttonLogin);
         RegisterButton = findViewById(R.id.buttonRegister);
-        Name = findViewById(R.id.editName);
+        Name = findViewById(R.id.editNameLogin);
         Password = findViewById(R.id.editPassword);
 
         sqLiteHelper = new SQLiteHelper(this);
@@ -38,10 +53,42 @@ public class MainActivity extends AppCompatActivity {
         LogInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String uName = Name.getText().toString();
+                usersListLogin = new ArrayList<>();
+                MainActivity.learningskid.collection("User").whereEqualTo("userName",uName).get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot documentSnapshots) {
+                                for (DocumentSnapshot doc : documentSnapshots) {
+                                    User userList = new User(doc.getString("id"),doc.getString("userName"), doc.getString("passWord"),
+                                            doc.getString("email"));
+                                    usersListLogin.add(userList);
+                                }
+                                if(usersListLogin.size() == 0){
+                                    Toast.makeText(getApplicationContext(),"Tên đăng nhập hoặc mật khẩu sai ",Toast.LENGTH_LONG).show();
+                                } else {
+                                    if(uName.equals("admin")){
+                                        Intent intent = new Intent(getApplicationContext(), AdminHomeContent.class);
+                                        intent.putExtra("admin", uName);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(),"Đăng nhập thành công!",Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(getApplicationContext(), UserHomeContent.class);
+                                        intent.putExtra("user", uName);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(),"Đăng nhập thành công!",Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d("load e ", e.toString());
+                                Toast.makeText(MainActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                CheckEditTextStatus();
-
-                LoginFunction();
             }
         });
 
@@ -134,15 +181,5 @@ public class MainActivity extends AppCompatActivity {
 //
 //        startActivity(intent);
 //        finish();
-//    }
-//    public void moveToMyActivity (View v){
-//        Intent intent = new Intent(getApplicationContext(),UserSearchDictionary.class);
-//        intent.putExtra( "color",0);
-//        startActivity(intent);
-//    }
-//    public void moveToMyActivity2 (View v){
-//        Intent intent = new Intent(getApplicationContext(),UserDictionary.class);
-//        intent.putExtra( "color",0);
-//        startActivity(intent);
 //    }
 }

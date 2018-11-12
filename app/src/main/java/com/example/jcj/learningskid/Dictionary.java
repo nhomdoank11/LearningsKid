@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Dictionary implements Serializable {
 
-    int id;
+    String id;
     String vietNam;
     String english;
     String example;
@@ -13,11 +13,11 @@ public class Dictionary implements Serializable {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,10 +45,11 @@ public class Dictionary implements Serializable {
         this.example = example;
     }
 
-    public Dictionary(int id, String vietNam, String english, String example) {
+    public Dictionary(String id, String vietNam, String english, String example) {
         this.id = id;
         this.vietNam = vietNam;
         this.english = english;
         this.example = example;
     }
 }
+

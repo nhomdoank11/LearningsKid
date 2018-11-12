@@ -18,10 +18,9 @@ public class UserEnglishContent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void goToNewWord(View v){
-        Intent intent1 = new Intent(getApplicationContext(), UserEnglishNewwordLesson.class);
-
-        startActivity(intent1);
+    public void goAddNewDictionary (View v){
+        Intent intent = new Intent(getApplicationContext(),UserSearchDictionary.class);
+        startActivity(intent);
         finish();
     }
 }

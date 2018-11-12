@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/editName"
+        android:id="@+id/editNameLogin"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="25dp"
@@ -36,7 +36,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:background="#FBFBFF"
-        android:layout_below="@+id/editName"
+        android:layout_below="@+id/editNameLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName"
+        app:layout_constraintTop_toBottomOf="@+id/editNameLogin"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -96,7 +96,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"
-        app:layout_constraintStart_toStartOf="@+id/editName"
+        app:layout_constraintStart_toStartOf="@+id/editNameLogin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.134"
         app:srcCompat="@drawable/kid" />
@@ -121,27 +121,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.161" />
 
-
-    <!--<Button-->
-        <!--android:id="@+id/button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="36dp"-->
-        <!--android:onClick="moveToMyActivity"-->
-        <!--android:text="Button"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--tools:ignore="MissingConstraints" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/button2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="32dp"-->
-        <!--android:layout_marginTop="464dp"-->
-        <!--android:onClick="moveToMyActivity2"-->
-        <!--android:text="add"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--tools:ignore="MissingConstraints" />-->
 </android.support.constraint.ConstraintLayout>

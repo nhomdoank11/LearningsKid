@@ -1,6 +1,8 @@
 package com.example.jcj.learningskid;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ public class AdminHomeContent extends AppCompatActivity {
     String NameHolder;
     TextView Name;
     Button LogOUT;
+    String uName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +24,9 @@ public class AdminHomeContent extends AppCompatActivity {
 
         Name = findViewById(R.id.textView2);
         LogOUT = findViewById(R.id.button2);
-
         Intent intent = getIntent();
-        NameHolder = intent.getStringExtra(MainActivity.UserName);
-
-        Name.setText(Name.getText().toString() + NameHolder);
-
+        uName = intent.getStringExtra("admin");
+        Name.setText(Name.getText().toString() + uName);
         LogOUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,4 +42,12 @@ public class AdminHomeContent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void goSearchDictionary(View view){
+
+        Intent intent = new Intent(getApplicationContext(),AdminSearchDictionary.class);
+        intent.putExtra("uName", uName);
+        startActivity(intent);
+        finish();
+    }
+
 }

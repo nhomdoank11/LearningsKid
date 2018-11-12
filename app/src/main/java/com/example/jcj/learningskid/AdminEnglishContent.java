@@ -18,9 +18,4 @@ public class AdminEnglishContent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void gotoadminnewword (View v){
-        Intent intentadminnewword = new Intent(getApplicationContext(),AdminEnglishNewword.class);
-        startActivity(intentadminnewword);
-        finish();
-    }
 }

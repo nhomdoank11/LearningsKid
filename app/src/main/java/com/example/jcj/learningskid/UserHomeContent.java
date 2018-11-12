@@ -11,7 +11,6 @@ import android.widget.Toast;
 public class UserHomeContent extends AppCompatActivity {
 
 
-    String NameHolder;
     TextView Name;
     Button LogOUT ;
     @Override
@@ -20,20 +19,16 @@ public class UserHomeContent extends AppCompatActivity {
         setContentView(R.layout.activity_user_home_content);
 
         Name = findViewById(R.id.textView1);
-        LogOUT = findViewById(R.id.button1);
-
         Intent intent = getIntent();
-        NameHolder = intent.getStringExtra(MainActivity.UserName);
-
-        Name.setText(Name.getText().toString()+ NameHolder);
-
-        LogOUT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                Toast.makeText(UserHomeContent.this,"Log Out Successfuly", Toast.LENGTH_LONG).show();
-            }
-        });
+        String uName = intent.getStringExtra("user");
+        Name.setText(Name.getText().toString()+ uName);
+//        LogOUT.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//                Toast.makeText(UserHomeContent.this,"Log Out Successfuly", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
     }
     public void goUserEnglishContent(View v){
@@ -42,4 +37,5 @@ public class UserHomeContent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
 }
