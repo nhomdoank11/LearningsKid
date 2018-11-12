@@ -16,9 +16,9 @@ public class UserEnglishContentGrammarQuizTest extends AppCompatActivity {
     private RadioButton radioButton3;
     private RadioButton radioButton4;
     private TextView textViewEngGramTest;
-    private final String[] title = {"mai lam gi","hello world","nghia tieng viet"};
-    private final String[][] names = {{"Long","My Linh","Duyen","hehe" },{"hehe","hihi","haha","a"},{"xxx","yyy","zzz","b"}};
-    private final String[] answer = {"Long","hihi","yyy"};
+    private final String[] title = {"How often do you play tennis?","Where do you usually eat lunch?","How long did you study last night?"};
+    private final String[][] names = {{"On Tuesday.","For two hours","Almost every day","With John" },{"Sandwich","With Jane","At 12:00","In the cafeteria"},{"With Bob","In my room","English","For three hours"}};
+    private final String[] answer = {"Almost every day","In the cafeteria","For three hours"};
     private String[] getAnswerQuiz = {"","",""};
 
 
