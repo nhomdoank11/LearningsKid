@@ -19,6 +19,7 @@
         <activity android:name=".UserHomeContent" />
         <activity android:name=".AdminHomeContent" />
         <activity android:name=".UserEnglishContent" />
+        <activity android:name=".UserEnglishNewwordLesson" />
         <activity android:name=".UserEnglishContentGrammar" />
         <activity android:name=".UserEnglishContentGrammarQuiz" />
         <activity android:name=".UserEnglishContentGrammarQuizTest" />
@@ -31,8 +32,15 @@
         <activity android:name=".UserSearchDictionary" />
         <activity android:name=".UserDictionary" />
         <activity android:name=".AdminEnglishContent" />
-        <activity android:name=".AdminEnglishContentGrammarQuizAdd"></activity>
-        <activity android:name=".UserEnglishNewwordLesson"></activity>
+        <activity android:name=".AdminEnglishContentGrammarQuizAdd" />
+        <activity android:name=".UserEnglishNewwordContent" />
+
+        <!-- <meta-data -->
+        <!-- android:name="preloaded_fonts" -->
+        <!-- android:resource="@array/preloaded_fonts" /> -->
+        <activity android:name=".AdminEnglishNewwordAddLesson" />
+        <activity android:name=".AdminEnglishNewword" />
+        <activity android:name=".AdminEnglishNewwordAddWord"></activity>
     </application>
 
 </manifest>
