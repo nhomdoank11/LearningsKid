@@ -18,7 +18,7 @@ public class UserEnglishContent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void goAddNewDictionary (View v){
+    public void goSearchDictionaryU (View v){
         Intent intent = new Intent(getApplicationContext(),UserSearchDictionary.class);
         startActivity(intent);
         finish();

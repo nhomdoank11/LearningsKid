@@ -18,6 +18,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,11 +87,12 @@ public class UserSearchDictionary extends AppCompatActivity {
                                     doc.getString(EXAMPLE));
                             dictionaryListU.add(dictionary);
                             if(dictionaryListU.size() > 0){
-                                tvTrans2U.setText("Bản dịch của " + txtAutoCompleteU + ":" + "\n" + "\n" +
-                                        "Ngĩa: " + doc.getString(VIETNAM) + "\n" + "\n" + "Nghĩa khác: " + doc.getString(EXAMPLE));
-                            } else {
-                                tvTrans2U.setText("Từ bạn tìm hiện chưa có");
+                                tvTrans2U.setText("Translation of " + txtAutoCompleteU + ":" + "\n" + "\n" +
+                                        "Means: " + doc.getString(VIETNAM) + "\n" + "\n" + "Other Meanings: " + doc.getString(EXAMPLE));
                             }
+                        }
+                        if(dictionaryListU.size() == 0) {
+                            tvTrans2U.setText("Your search is not available!");
                         }
                     }
                 })

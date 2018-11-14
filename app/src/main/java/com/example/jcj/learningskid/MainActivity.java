@@ -65,18 +65,18 @@ public class MainActivity extends AppCompatActivity {
                                     usersListLogin.add(userList);
                                 }
                                 if(usersListLogin.size() == 0){
-                                    Toast.makeText(getApplicationContext(),"Tên đăng nhập hoặc mật khẩu sai ",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(),"Username or password incorrect! ",Toast.LENGTH_LONG).show();
                                 } else {
                                     if(uName.equals("admin")){
                                         Intent intent = new Intent(getApplicationContext(), AdminHomeContent.class);
                                         intent.putExtra("admin", uName);
                                         startActivity(intent);
-                                        Toast.makeText(getApplicationContext(),"Đăng nhập thành công!",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"Logged in successfully!",Toast.LENGTH_SHORT).show();
                                     } else {
                                         Intent intent = new Intent(getApplicationContext(), UserHomeContent.class);
                                         intent.putExtra("user", uName);
                                         startActivity(intent);
-                                        Toast.makeText(getApplicationContext(),"Đăng nhập thành công!",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"Logged in successfully!",Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.d("load e ", e.toString());
-                                Toast.makeText(MainActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                             }
                         });
 

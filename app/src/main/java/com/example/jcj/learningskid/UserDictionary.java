@@ -40,7 +40,7 @@ public class UserDictionary extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(UserDictionary.this,"Yêu cầu của bạn đã được gửi thành công",Toast.LENGTH_LONG).show();
+                        Toast.makeText(UserDictionary.this,"Your request was submitted successfully",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(),UserSearchDictionary.class);
                         startActivity(intent);
                         finish();

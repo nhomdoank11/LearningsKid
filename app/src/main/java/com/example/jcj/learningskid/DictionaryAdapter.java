@@ -42,7 +42,7 @@ public class DictionaryAdapter extends BaseAdapter {
             String vi = dictionaryList.get(position).getVietNam();
             String en = dictionaryList.get(position).getEnglish();
             String ex = dictionaryList.get(position).getExample();
-            myHolder.textView.setText( "EN: " + vi + "\n" + "VD: " + ex);
+            myHolder.textView.setText( "EN: " + vi + "\n" + "EX: " + ex);
 
             convertView.setTag(myHolder);
         }else {

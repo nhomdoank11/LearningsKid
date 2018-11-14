@@ -83,11 +83,12 @@ public class AdminSearchDictionary extends AppCompatActivity {
                                     doc.getString(EXAMPLE));
                             dictionaryList.add(dictionary);
                             if(dictionaryList.size() > 0){
-                                tvTrans2.setText("Bản dịch của " + txtAutoComplete + ":" + "\n" + "\n" +
-                                        "Ngĩa: " + doc.getString(VIETNAM) + "\n" + "\n" + "Nghĩa khác: " + doc.getString(EXAMPLE));
-                            } else {
-                                tvTrans2.setText("Từ bạn tìm hiện chưa có");
+                                tvTrans2.setText("Translate of " + txtAutoComplete + ":" + "\n" + "\n" +
+                                        "Means: " + doc.getString(VIETNAM) + "\n" + "\n" + "Other Meanings: " + doc.getString(EXAMPLE));
                             }
+                        }
+                        if(dictionaryList.size() == 0) {
+                            tvTrans2.setText("Your search is not available!");
                         }
 
                     }

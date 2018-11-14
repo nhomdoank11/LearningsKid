@@ -78,18 +78,18 @@ public class AdapterAdmin_Dictionary extends BaseAdapter  {
                                         checkDuplicate.add(dictionary);
                                     }
                                     if (checkDuplicate.size() > 0) {
-                                        Toast.makeText(v.getContext(), "Duplicate", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(v.getContext(), "This word was in the dictionary!", Toast.LENGTH_SHORT).show();
                                     } else{
                                         MainActivity.learningskid.collection("DicProduct").document(Id).set(valuses2)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
-                                                        Toast.makeText(v.getContext(), "SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(v.getContext(), "SUCCESSFULLY!", Toast.LENGTH_SHORT).show();
                                                         MainActivity.learningskid.collection("Dictionary").document(Id).delete()
                                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                     @Override
                                                                     public void onSuccess(Void aVoid) {
-                                                                        Toast.makeText(v.getContext(), "delete success", Toast.LENGTH_SHORT).show();
+                                                                        Toast.makeText(v.getContext(), "Delete Success!", Toast.LENGTH_SHORT).show();
                                                                         Intent intent = new Intent(v.getContext(),AdminSearchDictionary.class);
                                                                         activity.startActivity(intent);
                                                                         activity.finish();
@@ -98,7 +98,7 @@ public class AdapterAdmin_Dictionary extends BaseAdapter  {
                                                                 .addOnFailureListener(new OnFailureListener() {
                                                                     @Override
                                                                     public void onFailure(@NonNull Exception e) {
-                                                                        Toast.makeText(v.getContext(), "delete fail", Toast.LENGTH_SHORT).show();
+                                                                        Toast.makeText(v.getContext(), "Delete Fail!", Toast.LENGTH_SHORT).show();
                                                                     }
                                                                 });
                                                     }
@@ -122,7 +122,7 @@ public class AdapterAdmin_Dictionary extends BaseAdapter  {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(v.getContext(),"delete success", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(v.getContext(),"Delete Success!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(v.getContext(),AdminSearchDictionary.class);
                                     activity.startActivity(intent);
                                     activity.finish();
@@ -131,7 +131,7 @@ public class AdapterAdmin_Dictionary extends BaseAdapter  {
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(v.getContext(),"delete fail", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(v.getContext(),"Delete Fail", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }

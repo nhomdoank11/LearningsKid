@@ -24,12 +24,14 @@ public class AdminHomeContent extends AppCompatActivity {
 
         Name = findViewById(R.id.textView2);
         LogOUT = findViewById(R.id.button2);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         uName = intent.getStringExtra("admin");
         Name.setText(Name.getText().toString() + uName);
         LogOUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent1 = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
                 finish();
                 Toast.makeText(AdminHomeContent.this, "Log Out Successfuly", Toast.LENGTH_LONG).show();
             }

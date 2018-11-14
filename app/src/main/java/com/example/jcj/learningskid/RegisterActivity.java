@@ -109,8 +109,10 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
-    public void getSelectUser() {
-
+    public void getBackLogin(View view) {
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+            finish();
     }
 
 //    // SQLite database build method.
