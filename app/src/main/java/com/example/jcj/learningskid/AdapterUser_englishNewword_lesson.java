@@ -1,5 +1,7 @@
 package com.example.jcj.learningskid;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -33,7 +35,7 @@ public class AdapterUser_englishNewword_lesson extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         MyHolder myHolder = null;
         if(convertView == null){
             convertView = activity.getLayoutInflater().inflate(R.layout.layout_english_newword_lesson, null);
@@ -46,6 +48,20 @@ public class AdapterUser_englishNewword_lesson extends BaseAdapter {
         }
         myHolder.txtID.setText(lessonList.get(position).getId()+"");
         myHolder.txtName.setText(lessonList.get(position).getName());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EnglishNewwordLesson lesson = (EnglishNewwordLesson) getItem(position);
+                Intent intent1 = new Intent(activity.getApplicationContext(), UserEnglishNewwordContent.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("exam", exam);
+                intent1.putExtra("lessonID", lesson.getId());
+                activity.startActivity(intent1);
+                activity.finish();
+            }
+        });
+
         return convertView;
     }
     class MyHolder {

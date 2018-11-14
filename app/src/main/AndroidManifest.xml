@@ -41,6 +41,10 @@
         <activity android:name=".AdminEnglishNewwordAddLesson" />
         <activity android:name=".AdminEnglishNewword" />
         <activity android:name=".AdminEnglishNewwordAddWord"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
