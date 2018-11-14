@@ -23,4 +23,9 @@ public class UserEnglishContent extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void gotonewword(View v){
+        Intent intentgonewword = new Intent(getApplicationContext(),UserEnglishNewwordLesson.class);
+        startActivity(intentgonewword);
+        finish();
+    }
 }
