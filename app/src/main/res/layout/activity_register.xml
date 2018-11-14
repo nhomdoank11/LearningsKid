@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7FD1B9"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -105,7 +106,7 @@
         android:background="@drawable/textregister"
         android:ems="10"
         android:gravity="center"
-        android:hint="Xác nhận mật khẩu"
+        android:hint="Re-Password"
         android:inputType="textPassword"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
